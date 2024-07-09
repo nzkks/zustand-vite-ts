@@ -1,11 +1,5 @@
-import SimpleExample from './SimpleExample';
-
 function App() {
-  return (
-    <>
-      <SimpleExample />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
