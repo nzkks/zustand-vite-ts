@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import { useStore } from '@/store/store';
 import ChangeQtyButtons from '@/components/ChangeQtyButtons';
+import Cart from '@/components/Cart';
 
 const App = () => {
   const addProduct = useStore(state => state.addProduct);
@@ -10,6 +11,10 @@ const App = () => {
 
   return (
     <main className="space-y-2 dark h-screen bg-background max-w-sm mx-auto mt-2">
+      <div className="flex justify-between">
+        <Cart />
+      </div>
+
       <h1 className="text-2xl">Products:</h1>
       <div className="space-y-2">
         {PRODUCTS_DATA.map(product => (
