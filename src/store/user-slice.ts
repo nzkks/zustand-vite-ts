@@ -15,8 +15,8 @@ export type UserSlice = UserState & UserActions;
 
 export const createUserSlice: StateCreator<UserSlice, [['zustand/immer', never]], [], UserSlice> = set => ({
   userName: '',
-  fullName: '',
-  age: 0,
+  fullName: 'Test user',
+  age: 30,
   address: '',
   setAddress: address =>
     set(state => {
