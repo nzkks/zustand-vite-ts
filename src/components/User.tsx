@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { UserIcon } from 'lucide-react';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -8,15 +9,24 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { useStore } from '@/store/store';
 
 const User = () => {
-  const { fullName, userName, age, address, setAddress } = useStore(
+  const { fullName, userName, age, address, setAddress, fetchUser } = useStore(
     useShallow(state => ({
       fullName: state.fullName,
       userName: state.userName,
       age: state.age,
       address: state.address,
       setAddress: state.setAddress,
+      fetchUser: state.fetchUser,
     }))
   );
+
+  useEffect(() => {
+    async function fetchData() {
+      await fetchUser();
+    }
+
+    fetchData();
+  }, [fetchUser]);
 
   return (
     <Popover>
