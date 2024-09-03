@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useStore } from '@/store/store';
 import ChangeQtyButtons from '@/components/ChangeQtyButtons';
 import Cart from '@/components/Cart';
+import User from '@/components/User';
 
 const App = () => {
   const addProduct = useStore(state => state.addProduct);
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <main className="space-y-2 dark h-screen bg-background max-w-sm mx-auto mt-2">
       <div className="flex justify-between">
+        <User />
         <Cart />
       </div>
 
