@@ -5,6 +5,7 @@ import { useStore } from '@/store/store';
 
 const App = () => {
   const addProduct = useStore(state => state.addProduct);
+  const cartProducts = useStore(state => state.products);
 
   return (
     <main className="space-y-2 dark h-screen bg-background max-w-sm mx-auto mt-2">
@@ -15,9 +16,13 @@ const App = () => {
             <CardHeader>{product.title}</CardHeader>
             <CardContent>{product.price}$</CardContent>
             <CardFooter>
-              <Button onClick={() => addProduct(product)} variant="default">
-                Add to Cart
-              </Button>
+              {cartProducts.find(item => item.id === product.id) ? (
+                <>change qty buttons</>
+              ) : (
+                <Button onClick={() => addProduct(product)} variant="default">
+                  Add to Cart
+                </Button>
+              )}
             </CardFooter>
           </Card>
         ))}
