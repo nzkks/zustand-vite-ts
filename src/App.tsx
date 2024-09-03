@@ -2,6 +2,7 @@ import { PRODUCTS_DATA } from '@/lib/mockData';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useStore } from '@/store/store';
+import ChangeQtyButtons from '@/components/ChangeQtyButtons';
 
 const App = () => {
   const addProduct = useStore(state => state.addProduct);
@@ -17,7 +18,7 @@ const App = () => {
             <CardContent>{product.price}$</CardContent>
             <CardFooter>
               {cartProducts.find(item => item.id === product.id) ? (
-                <>change qty buttons</>
+                <ChangeQtyButtons productId={product.id} />
               ) : (
                 <Button onClick={() => addProduct(product)} variant="default">
                   Add to Cart
